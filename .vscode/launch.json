@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "java",
+        "name": "Run User",
+        "request": "launch",
+        "mainClass": "login.User",
+        "classpath": [
+          "${workspaceFolder}/src",
+          "${workspaceFolder}/lib/mysql-connector-java-8.0.34.jar"
+        ]
+      }
+    ]
+  }
+  
