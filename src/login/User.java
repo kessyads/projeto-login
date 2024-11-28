@@ -22,31 +22,32 @@ public class User {
     public String nome = "";
 
     public boolean verificarUsuario(String login, String senha) {
-        boolean result = false;
-        Connection conn = conectarBD();
-        if (conn == null) {
+        boolean result = false; // Ponto 1
+        Connection conn = conectarBD(); // Ponto 2
+        if (conn == null) { // Ponto 3
             System.out.println("Conexão ao banco de dados falhou!");
-            return result;
+            return result; // Ponto 4
         }
-
-        String sql = "SELECT nome FROM usuarios WHERE login = '" + login + "' AND senha = '" + senha + "';";
+    
+        String sql = "SELECT nome FROM usuarios WHERE login = '" + login + "' AND senha = '" + senha + "';"; // Ponto 5
         try {
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-
-            if (rs.next()) {
-                result = true;
-                nome = rs.getString("nome");
+            Statement st = conn.createStatement(); // Ponto 6
+            ResultSet rs = st.executeQuery(sql); // Ponto 7
+    
+            if (rs.next()) { // Ponto 8
+                result = true; // Ponto 9
+                nome = rs.getString("nome"); // Ponto 10
             }
-
-            rs.close();
-            st.close();
-            conn.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+    
+            rs.close(); // Ponto 11
+            st.close(); // Ponto 12
+            conn.close(); // Ponto 13
+        } catch (Exception e) { // Ponto 14
+            e.printStackTrace(); // Ponto 15
         }
-        return result;
+        return result; // Ponto 16
     }
+    
 
     public static void main(String[] args) {
         User user = new User();
